@@ -61,6 +61,9 @@ ABSOLUTE RESTRICTIONS (NEVER VIOLATE):
 8. LIMIT SCOPE OF CHANGES: Make no more than 4-6 targeted changes per optimization. Avoid wholesale reorganizations that alter more than 20% of the interior layout.
 9. ⛔ FINAL WARNING: Before outputting, verify that row 0, row 47, and the first/last character of EVERY row are IDENTICAL to the input. If not, you have made an error.
 
+BEFORE OUTPUTING A RESPONSE:
+- check edge boxes to ensure that the border walls have not been touched, if there has been an edit, undo and re-generate the suggested changes
+
 RESPONSE FORMAT:
 SUGGESTIONS:
 - [Suggestion 1]
