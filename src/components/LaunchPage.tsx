@@ -45,7 +45,7 @@ export function LaunchPage({ onProceed }: LaunchPageProps) {
         <div className="mb-12">
           <h1 className="text-5xl lg:text-6xl font-bold text-white flex items-center justify-center gap-4 mb-4">
             <span className="text-6xl">🛒</span>
-            <span className="bg-gradient-to-r from-accent-blue via-accent-purple to-accent-cyan bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-orange-500 to-red-500 bg-clip-text text-transparent">
               Flowlytics
             </span>
           </h1>
