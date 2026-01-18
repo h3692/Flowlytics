@@ -1,10 +1,14 @@
+import { useState } from 'react';
 import { useSimulation } from './hooks/useSimulation';
 import { StoreCanvas } from './components/StoreCanvas';
 import { ControlPanel } from './components/ControlPanel';
 import { AIPanel } from './components/AIPanel';
 import { Legend } from './components/Legend';
+import { LaunchPage } from './components/LaunchPage';
 
 function App() {
+  const [currentView, setCurrentView] = useState<'launch' | 'dashboard'>('launch');
+
   const {
     layout,
     heatmap,
@@ -22,6 +26,10 @@ function App() {
     applyProposedLayout,
   } = useSimulation();
 
+  if (currentView === 'launch') {
+    return <LaunchPage onProceed={() => setCurrentView('dashboard')} />;
+  }
+
   return (
     <div className="min-h-screen p-6 lg:p-8">
       {/* Top Navigation Bar */}
@@ -33,7 +41,10 @@ function App() {
         </button>
 
         <div className="flex items-center gap-3">
-          <button className="btn-primary flex items-center gap-2">
+          <button
+            onClick={() => setCurrentView('launch')}
+            className="btn-primary flex items-center gap-2"
+          >
             <svg className="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12" />
             </svg>
@@ -64,14 +75,14 @@ function App() {
       {/* Main content - 3 column layout */}
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
         {/* Left panel - Legend */}
-        <div className="lg:col-span-2">
+        <div className="lg:col-span-2 h-full">
           <Legend />
         </div>
 
         {/* Center panel - Canvas */}
-        <div className="lg:col-span-6">
-          <div className="glass-card p-6">
-            <div className="flex justify-center">
+        <div className="lg:col-span-5 h-full">
+          <div className="glass-card p-6 h-full">
+            <div className="flex justify-center h-full items-center">
               <StoreCanvas
                 layout={layout}
                 heatmap={heatmap}
@@ -84,7 +95,7 @@ function App() {
         </div>
 
         {/* Right panel - Controls & AI */}
-        <div className="lg:col-span-4 space-y-6">
+        <div className="lg:col-span-5 flex flex-col gap-6">
           <ControlPanel
             simCount={simCount}
             isRunning={isRunning}

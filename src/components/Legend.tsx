@@ -31,7 +31,7 @@ const LEGEND_ITEMS = [
 
 export function Legend() {
   return (
-    <div className="glass-card p-6">
+    <div className="glass-card p-6 h-full">
       <h2 className="text-xl font-semibold text-white mb-4 flex items-center gap-2">
         <svg className="h-6 w-6 text-accent-cyan" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path

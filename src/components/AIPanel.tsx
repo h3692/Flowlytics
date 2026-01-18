@@ -33,7 +33,7 @@ export function AIPanel({
   };
 
   return (
-    <div className="glass-card p-6 space-y-6">
+    <div className="glass-card p-6 space-y-6 flex-1">
       <h2 className="text-xl font-semibold text-white flex items-center gap-2">
         <svg className="h-6 w-6 text-accent-purple" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path

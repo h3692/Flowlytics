@@ -37,19 +37,29 @@ TRAFFIC REPORT:
 ${report}
 
 STRATEGY:
-1. "Active Optimization": You have freedom to rearrange product placements within the store interior to improve traffic flow.
-2. "Merchandising": Swap product categories on shelves, relocate sections, and reposition items to balance traffic and reduce congestion.
-3. "Dead Spots": If a floor area has 0 traffic, move popular items nearby or reorganize the section to draw customers in.
-4. Be creative with interior layouts - you can move shelves, swap entire sections, and reorganize aisles.
+1. "Focused Optimization": Make targeted adjustments to improve traffic flow. You may modify 3-5 sections per optimization cycle, but avoid restructuring the entire store at once.
+2. "Smart Merchandising": Swap product categories or relocate sections where it makes sense. You can move items across the store if there's a clear benefit, but prefer logical groupings.
+3. "Dead Spots": Address dead spots by relocating popular items nearby or swapping sections to draw traffic. Feel free to make meaningful changes to underperforming areas.
+4. "Balanced Approach": You have flexibility to rearrange the interior layout, but preserve the general store organization. Focus on impactful changes rather than changing everything at once.
+
+⚠️ CRITICAL - BORDER WALLS ARE UNTOUCHABLE ⚠️
+The BLACK BORDER WALLS (#) form the store's structural perimeter. These are COMPLETELY OFF-LIMITS:
+- Row 0 (top border): DO NOT TOUCH - copy EXACTLY as-is
+- Row 47 (bottom border): DO NOT TOUCH - copy EXACTLY as-is
+- Column 0 (left border): DO NOT TOUCH - every row must start with #
+- Column 47 (right border): DO NOT TOUCH - every row must end with #
+ANY modification to these border walls will BREAK the simulation. Leave them EXACTLY as they appear in the input.
 
 ABSOLUTE RESTRICTIONS (NEVER VIOLATE):
-1. PERIMETER WALLS ARE SACRED: The first row (row 0), last row (row 47), first column (col 0), and last column (col 47) contain walls (#). NEVER modify these boundary walls under any circumstances.
+1. ⛔ PERIMETER WALLS ARE SACRED: The first row (row 0), last row (row 47), first column (col 0), and last column (col 47) contain walls (#). NEVER modify these boundary walls under any circumstances. Copy them character-for-character from the input.
 2. Maintain exactly 48 rows and 48 columns.
 3. Keep Entrances (E) and Checkouts (X) in their exact positions.
 4. Output MUST be a python list of strings.
 5. DO NOT CREATE NEW PRODUCTS OR REMOVE EXISTING ONES - only move/swap existing product configurations.
-6. The black border walls (#) around the entire perimeter are structural and must remain completely unchanged.
+6. ⛔ REPEAT: The black border walls (#) around the ENTIRE perimeter are structural and must remain COMPLETELY UNCHANGED. Do not add, remove, or modify ANY character in the border rows/columns.
 7. When outputting suggestions, refer to sections by their product names (e.g., "Meat", "Dairy", "Frozen") instead of grid letters (e.g., "M", "D", "Z")
+8. LIMIT SCOPE OF CHANGES: Make no more than 4-6 targeted changes per optimization. Avoid wholesale reorganizations that alter more than 20% of the interior layout.
+9. ⛔ FINAL WARNING: Before outputting, verify that row 0, row 47, and the first/last character of EVERY row are IDENTICAL to the input. If not, you have made an error.
 
 RESPONSE FORMAT:
 SUGGESTIONS:
@@ -61,7 +71,7 @@ LAYOUT:
 
   try {
     const ai = getGenAI();
-    const model = ai.getGenerativeModel({ model: 'gemini-2.5-flash-lite' });
+    const model = ai.getGenerativeModel({ model: 'gemini-2.5-flash' });
     const result = await model.generateContent(prompt);
     const text = result.response.text();
 
