@@ -11,7 +11,7 @@ from mesa.space import MultiGrid
 
 # --- 1. CONFIGURATION ---
 # !!! PASTE YOUR API KEY HERE !!!
-API_KEY = "AIzaSyBud7HQOVsMGIS-gtiHqW83Iw7gJgaOOC8"  
+API_KEY = ""  
 try:
     genai.configure(api_key=API_KEY)
 except Exception as e:
