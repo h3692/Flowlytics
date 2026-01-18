@@ -1,10 +1,14 @@
+import { useState } from 'react';
 import { useSimulation } from './hooks/useSimulation';
 import { StoreCanvas } from './components/StoreCanvas';
 import { ControlPanel } from './components/ControlPanel';
 import { AIPanel } from './components/AIPanel';
 import { Legend } from './components/Legend';
+import { LaunchPage } from './components/LaunchPage';
 
 function App() {
+  const [currentView, setCurrentView] = useState<'launch' | 'dashboard'>('launch');
+
   const {
     layout,
     heatmap,
@@ -21,6 +25,10 @@ function App() {
     setSuggestions,
     applyProposedLayout,
   } = useSimulation();
+
+  if (currentView === 'launch') {
+    return <LaunchPage onProceed={() => setCurrentView('dashboard')} />;
+  }
 
   return (
     <div className="min-h-screen p-6 lg:p-8">
@@ -88,14 +96,14 @@ function App() {
       {/* Main content - 3 column layout */}
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
         {/* Left panel - Legend */}
-        <div className="lg:col-span-2">
+        <div className="lg:col-span-2 h-full">
           <Legend />
         </div>
 
         {/* Center panel - Canvas */}
-        <div className="lg:col-span-6">
-          <div className="glass-card p-6">
-            <div className="flex justify-center">
+        <div className="lg:col-span-5 h-full">
+          <div className="glass-card p-6 h-full">
+            <div className="flex justify-center h-full items-center">
               <StoreCanvas
                 layout={layout}
                 heatmap={heatmap}
@@ -108,7 +116,7 @@ function App() {
         </div>
 
         {/* Right panel - Controls & AI */}
-        <div className="lg:col-span-4 space-y-6">
+        <div className="lg:col-span-5 flex flex-col gap-6">
           <ControlPanel
             simCount={simCount}
             isRunning={isRunning}
