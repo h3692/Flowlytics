@@ -44,8 +44,16 @@ export function LaunchPage({ onProceed }: LaunchPageProps) {
         {/* Logo and Title */}
         <div className="mb-12">
           <h1 className="text-5xl lg:text-6xl font-bold text-white flex items-center justify-center gap-4 mb-4">
-            <span className="text-6xl">🛒</span>
-            <span className="bg-gradient-to-r from-orange-500 to-red-500 bg-clip-text text-transparent">
+            <span className="text-6xl inline-block 
+              transition-transform 
+              duration-300 
+              hover:scale-110
+              cursor-pointer">🛒</span>
+            <span className="bg-gradient-to-r from-orange-500 to-red-500 bg-clip-text text-transparent               inline-block 
+              transition-transform 
+              duration-300 
+              hover:scale-110
+              cursor-pointer">
               Flowlytics
             </span>
           </h1>
