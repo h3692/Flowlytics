@@ -49,17 +49,28 @@ function App() {
       </nav>
 
       {/* Header */}
-      <header className="mb-8">
-        <h1 className="text-3xl lg:text-4xl font-bold text-white flex items-center gap-3">
-          <span className="text-4xl">🛒</span>
-          <span className="bg-gradient-to-r from-accent-blue via-accent-purple to-accent-cyan bg-clip-text text-transparent">
-            Flowlytics
-          </span>
-        </h1>
-        <p className="text-gray-400 mt-2">
-          Retail store traffic simulation and AI-powered layout optimization
-        </p>
-      </header>
+<header className="mb-8">
+  <h1 className="text-3xl lg:text-4xl font-bold text-white flex items-center gap-3">
+    <span className="text-4xl">🛒</span>
+    <span 
+      className="
+        bg-gradient-to-r from-accent-blue via-accent-purple to-accent-cyan 
+        bg-clip-text text-transparent 
+        
+        /* New Hover Effects */
+        bg-[length:200%_auto] 
+        transition-all duration-500 
+        hover:bg-right 
+        cursor-pointer
+      "
+    >
+      Flowlytics
+    </span>
+  </h1>
+  <p className="text-gray-400 mt-2">
+    Retail store traffic simulation and AI-powered layout optimization
+  </p>
+</header>
 
       {/* Main content - 3 column layout */}
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
