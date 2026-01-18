@@ -33,7 +33,14 @@ function App() {
         </button>
 
         <div className="flex items-center gap-3">
-          <button className="btn-primary flex items-center gap-2">
+          {/* CORRECTED UPLOAD BUTTON: Removed btn-primary, added manual sizing + red gradient */}
+          <button className="
+            flex items-center gap-2 
+            px-6 py-3 rounded-xl font-semibold
+            bg-gradient-to-r from-red-600 to-orange-500 text-white
+            transition-all duration-300
+            hover:scale-105 hover:shadow-[0_0_20px_rgba(239,68,68,0.4)]
+          ">
             <svg className="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12" />
             </svg>
@@ -49,28 +56,34 @@ function App() {
       </nav>
 
       {/* Header */}
-<header className="mb-8">
-  <h1 className="text-3xl lg:text-4xl font-bold text-white flex items-center gap-3">
-    <span className="text-4xl">🛒</span>
-    <span 
-      className="
-        bg-gradient-to-r from-accent-blue via-accent-purple to-accent-cyan 
-        bg-clip-text text-transparent 
-        
-        /* New Hover Effects */
-        bg-[length:200%_auto] 
-        transition-all duration-500 
-        hover:bg-right 
-        cursor-pointer
-      "
-    >
-      Flowlytics
-    </span>
-  </h1>
-  <p className="text-gray-400 mt-2">
-    Retail store traffic simulation and AI-powered layout optimization
-  </p>
-</header>
+      <header className="mb-8 text-center">
+        <h1 className="text-3xl lg:text-4xl font-bold text-white flex items-center justify-center gap-3">
+          <span className="
+            text-4xl
+            inline-block 
+            transition-transform 
+            duration-300 
+            hover:scale-110
+            cursor-pointer
+          ">🛒</span>
+          <span 
+            className="
+              bg-gradient-to-r from-red-500 via-orange-500 to-yellow-400
+              bg-clip-text text-transparent 
+              inline-block 
+              transition-transform 
+              duration-300 
+              hover:scale-110
+              cursor-pointer
+            "
+          >
+            Flowlytics
+          </span>
+        </h1>
+        <p className="text-gray-400 mt-2 flex justify-center items-center">
+          Retail store traffic simulation and AI-powered layout optimization
+        </p>
+      </header>
 
       {/* Main content - 3 column layout */}
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
@@ -116,7 +129,8 @@ function App() {
       {suggestions.length > 0 && (
         <div className="mt-6 glass-card p-6">
           <div className="flex items-center justify-between mb-4">
-            <div className="flex items-center gap-2 text-emerald-400">
+            {/* Changed from Emerald (Green) to Orange/Red theme */}
+            <div className="flex items-center gap-2 text-orange-400">
               <svg className="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path
                   strokeLinecap="round"
@@ -130,7 +144,12 @@ function App() {
             {proposedLayout && (
               <button
                 onClick={applyProposedLayout}
-                className="btn-success flex items-center gap-2"
+                className="
+                  flex items-center gap-2 px-4 py-2 rounded-lg font-medium text-white
+                  bg-gradient-to-r from-orange-500 to-red-500 
+                  hover:from-orange-400 hover:to-red-400
+                  transition-all duration-200
+                "
               >
                 <svg className="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path
@@ -148,10 +167,10 @@ function App() {
             {suggestions.map((suggestion, index) => (
               <div
                 key={index}
-                className="p-4 bg-emerald-900/20 border border-emerald-700/50 rounded-lg"
+                className="p-4 bg-orange-900/20 border border-orange-700/50 rounded-lg"
               >
                 <div className="flex items-start gap-3">
-                  <span className="flex-shrink-0 w-6 h-6 rounded-full bg-emerald-600 text-white text-sm flex items-center justify-center font-medium">
+                  <span className="flex-shrink-0 w-6 h-6 rounded-full bg-orange-600 text-white text-sm flex items-center justify-center font-medium">
                     {index + 1}
                   </span>
                   <p className="text-gray-300">{suggestion.replace(/^-\s*/, '')}</p>

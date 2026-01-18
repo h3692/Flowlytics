@@ -1,13 +1,15 @@
 @import "tailwindcss";
 
-/* Custom theme using CSS variables */
+/* Custom theme - UPDATED to Red/Orange/Yellow */
 @theme {
   --color-dark-bg: #0a0a0f;
   --color-dark-card: #12121a;
   --color-dark-border: #1e1e2e;
-  --color-accent-blue: #3b82f6;
-  --color-accent-purple: #8b5cf6;
-  --color-accent-cyan: #06b6d4;
+  
+  /* NEW ACCENT COLORS */
+  --color-accent-red: #dc2626;    /* red-600 */
+  --color-accent-orange: #f97316; /* orange-500 */
+  --color-accent-yellow: #facc15; /* yellow-400 */
 }
 
 :root {
@@ -21,7 +23,8 @@
 body {
   margin: 0;
   min-height: 100vh;
-  background: linear-gradient(135deg, #0a0a0f 0%, #111118 50%, #0d0d14 100%);
+  /* Slightly warmer dark background */
+  background: linear-gradient(135deg, #0a0a0f 0%, #1a1111 50%, #0d0d14 100%);
   color: #e5e5e5;
 }
 
@@ -36,6 +39,12 @@ body {
   border: 1px solid rgba(30, 30, 46, 0.5);
   border-radius: 0.75rem;
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  transition: border-color 0.3s ease;
+}
+
+/* Add a subtle Orange glow to cards on hover */
+.glass-card:hover {
+  border-color: rgba(249, 115, 22, 0.3); /* Orange tint */
 }
 
 .btn-primary {
@@ -43,15 +52,19 @@ body {
   border-radius: 0.5rem;
   font-weight: 500;
   transition: all 0.3s;
-  background: linear-gradient(to right, var(--color-accent-blue), var(--color-accent-purple));
+  
+  /* UPDATED: Red to Orange Gradient */
+  background: linear-gradient(to right, var(--color-accent-red), var(--color-accent-orange));
   color: white;
   border: none;
   cursor: pointer;
 }
 
 .btn-primary:hover {
-  background: linear-gradient(to right, rgba(59, 130, 246, 0.9), rgba(139, 92, 246, 0.9));
-  box-shadow: 0 0 20px rgba(59, 130, 246, 0.3);
+  /* Brighter Red/Orange on hover */
+  background: linear-gradient(to right, #ef4444, #fb923c);
+  /* Red Glow Shadow */
+  box-shadow: 0 0 20px rgba(220, 38, 38, 0.4);
   transform: scale(1.02);
 }
 
@@ -82,7 +95,8 @@ body {
 
 .btn-secondary:hover {
   background-color: var(--color-dark-border);
-  border-color: rgba(6, 182, 212, 0.5);
+  /* UPDATED: Border changes to Orange instead of Cyan */
+  border-color: rgba(249, 115, 22, 0.5);
 }
 
 .btn-secondary:active {
@@ -110,7 +124,7 @@ body {
   transform: scale(0.98);
 }
 
-/* Custom scrollbar */
+/* Custom scrollbar - Tweaked thumb color slightly */
 ::-webkit-scrollbar {
   width: 8px;
   height: 8px;
@@ -121,10 +135,10 @@ body {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #2a2a3a;
+  background: #3a2a2a; /* Slightly warmer tone */
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #3a3a4a;
+  background: #503030;
 }
